@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="./assets/avatar.jpeg" alt="Avatar img" srcset="">
+    <img src="./assets/chat.jpeg" alt="Chat img" srcset="">
+    <img src="./assets/lunette.jpeg" alt="Lunette img" srcset="">
+
+    <script>
+        const imgSrc = document.getElementsByTagName("img");
+
+        imgSrc[0].src = imgSrc[2].src;
+        imgSrc[1].src = imgSrc[2].src;
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        const newDiv = document.createElement("div");
+        newDiv.style.width = "100%";
+        newDiv.style.height = "300px";
+        newDiv.style.backgroundColor = "purple";
+        document.getElementsByTagName('body')[0].appendChild(newDiv);
+
+        const title = document.createElement("h1");
+        title.innerHTML = "Hello";
+        title.style.color = "white";
+        title.style.textTransform = "uppercase";
+        document.getElementsByTagName('div')[0].appendChild(title);
+    </script>
+</body>
+
+</html>

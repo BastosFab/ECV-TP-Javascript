@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="gras">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam mollitia quam in eos laudantium
+        eligendi at accusamus nemo doloremque vitae modi dolor esse, quos, numquam voluptatem quod repellat quasi
+        facilis.</p>
+    <p id="italic">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam mollitia quam in eos laudantium
+        eligendi at accusamus nemo doloremque vitae modi dolor esse, quos, numquam voluptatem quod repellat quasi
+        facilis.</p>
+    <p id="uppercase">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam mollitia quam in eos
+        laudantium eligendi at accusamus nemo doloremque vitae modi dolor esse, quos, numquam voluptatem quod repellat
+        quasi facilis.</p>
+
+    <script>
+        gras.style.fontWeight = "bold";
+        italic.style.fontStyle = "italic";
+        uppercase.style.textTransform = "uppercase";
+
+        document.getElementsByTagName('body')[2].appendChild(gras);
+        document.getElementsByTagName('body')[1].appendChild(italic);
+        document.getElementsByTagName('body')[0].appendChild(uppercase);
+    </script>
+</body>
+
+</html>

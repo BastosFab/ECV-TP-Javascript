@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img id="img1" src="./assets/chat.jpeg" alt="Chat" onclick="zoom1()">
+    <img id="img2" src="./assets/chat.jpeg" alt="Avatar" onclick="zoom2()">
+
+    <script>
+        function zoom1() {
+            // console.log(document.querySelectorAll("img"));
+            // console.log(document.querySelector('#img1'));
+
+            const imageOne = document.getElementById('img1');
+            const imageTwo = document.getElementById('img2');
+
+            var currWidthOne = imageOne.clientWidth;
+            var currWidthTwo = imageTwo.clientWidth;
+
+            if (currWidthOne == 10 || currWidthTwo == 0) {
+                alert("Maximum zoom-in level reached.");
+            } else {
+                imageOne.style.width = (currWidthOne + (currWidthOne * 0.2)) + "px";
+                imageTwo.style.width = (currWidthTwo - (currWidthTwo * 0.2)) + "px";
+
+                console.log(currWidthOne);
+                console.log(currWidthTwo);
+            }
+        }
+
+        function zoom2() {
+            // console.log(document.querySelectorAll("img"));
+            // console.log(document.querySelector('#img1'));
+
+            const imageOne = document.getElementById('img1');
+            const imageTwo = document.getElementById('img2');
+
+            var currWidthOne = imageOne.clientWidth;
+            var currWidthTwo = imageTwo.clientWidth;
+
+            if (currWidthOne == 0 || currWidthTwo == 10) {
+                alert("Maximum zoom-in level reached.");
+            } else {
+                imageOne.style.width = (currWidthOne - (currWidthOne * 0.2)) + "px";
+                imageTwo.style.width = (currWidthTwo + (currWidthTwo * 0.2)) + "px";
+            }
+        }
+    </script>
+</body>
+
+</html>

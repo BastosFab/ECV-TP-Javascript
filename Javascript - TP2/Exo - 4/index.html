@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="divRose" style="width: 50px; height: 50px; background-color: pink;">
+    </div>
+
+    <script>
+        let rose = document.getElementById('divRose');
+        let move = 10;
+
+        window.addEventListener('load', () => {
+            divRose.style.position = 'absolute';
+            divRose.style.left = 0;
+            divRose.style.top = 0;
+        });
+
+        window.addEventListener('keyup', (e) => {
+            switch (e.key) {
+                case 'ArrowLeft':
+                    divRose.style.left = parseInt(divRose.style.left) - move + 'px';
+                    break;
+                case 'ArrowRight':
+                    divRose.style.left = parseInt(divRose.style.left) + move + 'px';
+                    break;
+                case 'ArrowUp':
+                    divRose.style.top = parseInt(divRose.style.top) - move + 'px';
+                    break;
+                case 'ArrowDown':
+                    divRose.style.top = parseInt(divRose.style.top) + move + 'px';
+                    break;
+            }
+        });
+    </script>
+</body>
+
+</html>

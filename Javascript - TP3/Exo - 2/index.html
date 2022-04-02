@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div {
+            width: 100%;
+            height: 50px;
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+
+        function getRandomInt(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        let randomDiv = getRandomInt(5, 15);
+        console.log(randomDiv);
+
+        for (let i = 0; i < randomDiv; i++) {
+            const createDiv = document.createElement("div");
+            createDiv.style.backgroundColor = getRandomColor();
+            // console.log(createDiv.style.backgroundColor);
+            document.body.appendChild(createDiv);
+        }
+
+        function getRandomColor() {
+            const random = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
+            let r = random(0, 255);
+            let g = random(0, 255);
+            let b = random(0, 255);
+            let rgb = `rgb(${r}, ${g}, ${b}`;
+            return rgb;
+        }
+
+    </script>
+
+</body>
+
+</html>

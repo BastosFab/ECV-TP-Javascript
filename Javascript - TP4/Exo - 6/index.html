@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function findLongestWord(str) {
+        const strSplit = str.split(" ");
+        console.log(strSplit);
+
+        let findLongestWord = strSplit[0];
+        for (let i = 0; i < strSplit.length; i++) {
+            if (strSplit[i].length > findLongestWord.length) {
+                findLongestWord = strSplit[i];
+            }
+        }
+        return findLongestWord;
+    }
+
+    console.log(findLongestWord("le chemin le plus cours n'est pas toujours le meilleur"));
+</script>
+
+</html>

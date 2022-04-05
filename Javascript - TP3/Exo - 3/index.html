@@ -35,18 +35,6 @@
             // console.log(createDiv.style.backgroundColor);
             document.body.appendChild(createDiv);
 
-            // let divMouse = document.getElementsByTagName("div");
-            // for (let i = 0; i < divMouse.length; i++) {
-            //     divMouse[i].addEventListener('click', function (event) {
-            //         if (event.target.style.backgroundColor == getRandomColor()) {
-            //             event.target.style.backgroundColor = 'red';
-            //         } else if (event.target.style.backgroundColor == 'red') {
-            //             event.target.style.backgroundColor = getRandomColor();
-            //         }
-            //         // console.log(event.target);
-            //     }, false);
-            // }
-
             function getRandomColor() {
                 const random = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
                 let r = random(0, 255);
@@ -54,10 +42,19 @@
                 let b = random(0, 255);
                 let rgb = `rgb(${r}, ${g}, ${b}`;
                 return rgb;
+
+                let divMouse = document.getElementsByTagName("div");
+                divMouse.addEventListener('click', function (event) {
+                    if (event.target.style.backgroundColor == getRandomColor()) {
+                        event.target.style.backgroundColor = 'red';
+                    } else if (event.target.style.backgroundColor == 'red') {
+                        event.target.style.backgroundColor = getRandomColor();
+                    }
+                    //         // console.log(event.target);
+                }, false);
             }
-
-
         }
+
 
     </script>
 

@@ -35,27 +35,22 @@
             // console.log(createDiv.style.backgroundColor);
             document.body.appendChild(createDiv);
 
-            function getRandomColor() {
-                const random = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
-                let r = random(0, 255);
-                let g = random(0, 255);
-                let b = random(0, 255);
-                let rgb = `rgb(${r}, ${g}, ${b}`;
-                return rgb;
+            const color = []
+            createDiv.addEventListener('click', (event) => {
+                const target = event.target;
+                target.style.backgroundColor = target.style.backgroundColor == "red" ? color[i] : 'red';
+            })
 
-                let divMouse = document.getElementsByTagName("div");
-                divMouse.addEventListener('click', function (event) {
-                    if (event.target.style.backgroundColor == getRandomColor()) {
-                        event.target.style.backgroundColor = 'red';
-                    } else if (event.target.style.backgroundColor == 'red') {
-                        event.target.style.backgroundColor = getRandomColor();
-                    }
-                    //         // console.log(event.target);
-                }, false);
-            }
         }
 
-
+        function getRandomColor() {
+            const random = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
+            let r = random(0, 255);
+            let g = random(0, 255);
+            let b = random(0, 255);
+            let rgb = `rgb(${r}, ${g}, ${b}`;
+            return rgb;
+        }
     </script>
 
 </body>

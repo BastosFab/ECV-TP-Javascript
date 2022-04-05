@@ -11,18 +11,20 @@
 <body>
 
     <ul>
-        <li></li>
+
     </ul>
 
     <script>
+        const ul = document.querySelector("ul")
+        const array = []
         document.addEventListener("keydown", e => {
             const value = e.key
-            console.log(e.key)
-            const input = []
-
-            input.push(value);
-            console.log(input)
-            document.body.innerHTML = input
+            array.push(value)
+            console.log(array)
+            if (array.length > 20) {
+                array.shift()
+            }
+            ul.innerHTML = array.join(' - ')
         })
 
     </script>

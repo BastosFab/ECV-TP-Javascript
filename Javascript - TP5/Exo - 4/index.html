@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const first = [0, 2, 4, 6, 8, 8]
+        const second = [1, 2, 3, 4, 5, 6]
+        function arrayDiff(first, second) {
+            const tab = [], diff = [];
+
+            for (let i = 0; i < first.length; i++) {
+                tab[first[i]] = true;
+            }
+
+            for (let i = 0; i < second.length; i++) {
+                if (tab[second[i]]) {
+                    delete tab[second[i]];
+                } else {
+                    tab[second[i]] = true;
+                }
+            }
+
+            for (const j in tab) {
+                diff.push(j);
+            }
+
+            return diff;
+        }
+
+        console.log(arrayDiff(first, second))
+    </script>
+</body>
+
+</html>

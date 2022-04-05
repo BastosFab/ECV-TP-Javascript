@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const first = [0, 2, 4, 6, 8, 8]
+        const second = [1, 2, 3, 4, 5, 6]
+        function intersections(first, second) {
+            const result = [];
+            while (first.length > 0 && second.length > 0) {
+                if (first[0] < second[0]) { first.shift(); }
+                else if (first[0] > second[0]) { second.shift(); }
+                else {
+                    result.push(first.shift());
+                    second.shift();
+                }
+            }
+            return result;
+        }
+
+        console.log(intersections(first, second))
+    </script>
+</body>
+
+</html>

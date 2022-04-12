@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        let person = {
+            lastName: "VANDENBERGHE",
+            firstName: "FABIEN",
+            gender: "H",
+            dateOfBirthday: "20/3/1999"
+        }
+
+        function fiscalCode() {
+
+            let fiscalId = ''
+
+            // Lastname //
+            const lastName = person.lastName
+
+            const lastNameConsonne = lastName.match(/[^aeyiuo]/ig) || []; // Tableau vide si pas de consonne pour permettre le join par la suite
+            const lastNameVoyelle = lastName.match(/[aeyiuo]/ig) || []; // Tableau vide si pas de voyelle pour permettre le join par la suite
+            const lastNameString = lastNameConsonne.join('') + lastNameVoyelle.join('')
+
+            const lastNameStringArray = lastNameString.split('')
+
+            const size = 3
+            if (lastNameStringArray.length > 3) {
+                const lastNameFiscal = lastNameStringArray.slice(0, size).join('').toUpperCase()
+                fiscalId += lastNameFiscal
+            } else {
+                const x = ["X", "X", "X"]
+                const lastNameFascalX = lastNameStringArray.concat(x).slice(0, size).join('').toUpperCase() // si il y a que 1 lettre je complete le nombre manquant avec X
+                fiscalId += lastNameFascalX
+            }
+
+
+
+
+
+            // Firstname //
+            const firstName = person.firstName
+
+            const firstNameConsonne = firstName.match(/[^aeiuo]/ig) || [];
+            const firstNameVoyelle = firstName.match(/[aeiuo]/ig) || [];
+
+            let firstNameString = ''
+            if (firstNameConsonne.length <= 3) {
+                firstNameString = firstNameConsonne.join('') + firstNameVoyelle.join('')
+            } else {
+                firstNameConsonne.splice(1, 1)
+                firstNameString = firstNameConsonne.join('') + firstNameVoyelle.join('')
+            }
+
+            const firstNameStringArray = firstNameString.split('')
+
+            if (firstNameStringArray.length > 3) {
+                const firstNameFiscal = firstNameStringArray.slice(0, size).join('').toUpperCase()
+                fiscalId += firstNameFiscal
+            } else {
+                const x = ["X", "X", "X"]
+                const firstNameFiscalX = firstNameStringArray.concat(x).slice(0, size).join('').toUpperCase() // si il y a que 1 lettre je complete le nombre manquant avec X
+                fiscalId += firstNameFiscalX
+            }
+
+
+
+
+
+            // Birthday - Gender //
+            // Year //
+            const gender = person.gender
+            const birthday = person.dateOfBirthday
+            const birthdayArray = birthday.split('')
+            const birthdayArrayReverse = birthdayArray.reverse().slice(0, 2)
+            const birthdayString = birthdayArrayReverse.join('')
+            // Birthday year //
+            fiscalId += birthdayString
+
+
+            // Month //
+            const monthReverse = birthday.split('').reverse() // inverser string car année = 4 chiiffres + /
+            const monthArray = monthReverse.splice(5, 5)
+            const monthNumber = monthArray[0]
+
+            const monthLetterArray = ['A', 'B', 'C', 'D', 'E', 'H', 'L', 'M', 'P', 'R', 'S', 'T']
+            const monthLetter = monthLetterArray[monthNumber - 1]
+            fiscalId += monthLetter
+
+
+            // Gender //
+            const birthdayArrayGender = birthday.split('').splice(0, 2)
+
+            if (gender == "H") {
+                for (var i = 0; i < birthdayArrayGender.length; i++) {
+                    if (birthdayArrayGender[i] === '/') {
+
+                        birthdayArrayGender.splice(i, 1)
+                    }
+                }
+                if (birthdayArrayGender.join('') < 10) {
+                    fiscalId += birthdayArrayGender.concat('0').reverse().join('')
+                } else {
+                    fiscalId += birthdayArrayGender.join('')
+                }
+            } else {
+                const birthdayArrayGenderF = parseInt(birthdayArrayGender.join('')) + 40
+                fiscalId += birthdayArrayGenderF
+            }
+
+            console.log('Code fiscale', fiscalId)
+
+        }
+        fiscalCode(person)
+    </script>
+</body>
+
+</html>

@@ -41,11 +41,34 @@
             })
         }
 
+        const birthday = (birthdayStirng) => {
+            return new Promise((resolve, reject) => {
+
+                // Date d'aujourd'hui //
+                const today = Date.now()
+
+                // Date birthday //
+                const dobNumber = birthdayStirng.split('/')
+                const dobMilliseconds = new Date(dobNumber[2], dobNumber[1], dobNumber[0]).getTime()
+
+                const dateDiff = (today - dobMilliseconds) / 1000 / 60 / 60 / 24 / 365
+
+                if (dateDiff >= 18) {
+                    resolve("Majeur: " + Math.trunc(dateDiff))
+                } else {
+                    reject('Mineur: ' + Math.trunc(dateDiff))
+                }
+            })
+        }
+
         execute(() => countWord("azerty"))
         execute(() => countWord("azertyuiopqsdfghjklmw"))
 
         execute(() => countBetweenWords(50, 15))
         execute(() => countBetweenWords(50, 55))
+
+        execute(() => birthday("20/03/1999"))
+        execute(() => birthday("20/03/2005"))
     </script>
 </body>
 

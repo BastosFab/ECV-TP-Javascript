@@ -11,16 +11,28 @@
 <body>
 
     <script>
-        const birthday = (string) => {
+        const birthday = (birthdayStirng) => {
             return new Promise((resolve, reject) => {
 
+                // Date d'aujourd'hui //
                 const today = Date.now()
-                const day = today.getDate()
-                console.log(day)
-                if (first > second) {
-                    resolve(first - second)
+                // const today = new Date(date)
+                console.log(today)
+
+
+                // Date birthday //
+                const dobNumber = birthdayStirng.split('/')
+                // const dobMilliseconds = new Date(dobNumber[0], dobNumber[1], dobNumber[2]).getTime()
+                const dobMilliseconds = new Date(dobNumber[2], dobNumber[1], dobNumber[0]).getTime()
+                console.log(dobMilliseconds)
+
+                const dateDiff = (today - dobMilliseconds) / 1000 / 60 / 60 / 24 / 365
+                // console.log(Math.trunc(dateDiff))
+
+                if (dateDiff >= 18) {
+                    resolve("Majeur: " + Math.trunc(dateDiff))
                 } else {
-                    reject('error')
+                    reject("Mineur: " + Math.trunc(dateDiff))
                 }
             })
         }

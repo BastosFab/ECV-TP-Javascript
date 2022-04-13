@@ -14,7 +14,7 @@
         const countWord = (string) => {
             return new Promise((resolve, reject) => {
                 if (string.length > 20) {
-                    reject("error")
+                    reject("Plus de 20 lettre: " + string.length)
                 } else {
                     resolve(true)
                 }

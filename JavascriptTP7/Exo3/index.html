@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        const birthday = (string) => {
+            return new Promise((resolve, reject) => {
+
+                const today = Date.now()
+                const day = today.getDate()
+                console.log(day)
+                if (first > second) {
+                    resolve(first - second)
+                } else {
+                    reject('error')
+                }
+            })
+        }
+
+        function resolveReturn(result) {
+            console.log(result)
+        }
+
+        function rejectReturn(error) {
+            console.log(error)
+        }
+
+        const promise = birthday('20/03/1999')
+        promise.then(resolveReturn, rejectReturn)
+    </script>
+
+</body>
+
+</html>
